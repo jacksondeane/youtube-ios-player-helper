@@ -145,6 +145,9 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
 /** A delegate to be notified on playback events. */
 @property(nonatomic, weak, nullable) id<YTPlayerViewDelegate> delegate;
 
+/** An instance of UIApplication used to open URLs that are not embeds, ads, syndication, proxy or oAuth URLs. */
+@property(nonatomic, nullable) UIApplication *applicationInstance;
+
 /**
  * This method loads the player with the given video ID.
  * This is a convenience method for calling YTPlayerView::loadPlayerWithVideoId:withPlayerVars:
