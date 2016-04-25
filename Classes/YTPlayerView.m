@@ -654,7 +654,9 @@ NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googles
   if (ytMatch || adMatch || oauthMatch || staticProxyMatch || syndicationMatch) {
     return YES;
   } else {
-    [self.applicationInstance openURL:url];
+      if ([self.applicationInstance respondsToSelector:@selector(openURL:)]) {
+          [self.applicationInstance performSelector:@selector(openURL:) withObject:url];
+      }
     return NO;
   }
 }
